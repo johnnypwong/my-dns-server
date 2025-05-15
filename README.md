@@ -57,3 +57,41 @@ docker compose down
 ```
 
 
+### API
+# Add DNS Record
+```bash
+curl --location 'localhost:3000/api/dns' \
+--header 'Content-Type: application/json' \
+--data '{
+    "type": "A",
+    "hostname": "example.com",
+    "value": "192.168.1.1"
+}'
+```
+or 
+
+```bash
+curl --location 'localhost:3000/api/dns' \
+--header 'Content-Type: application/json' \
+--data '{
+    "type": "CNAME",
+    "hostname": "alias.example.com",
+    "value": "example.com"
+}'
+```
+
+# Resolve DNS
+```bash
+curl --location 'localhost:3000/api/dns/alias.example.com'
+```
+
+# Get DNS Record
+
+```bash
+curl --location 'localhost:3000/api/dns/example.com/records'
+```
+
+# Delete DNS Record
+```bash
+curl --location --request DELETE 'localhost:3000/api/dns/alias.example.com?type=CNAME&value=example.com'
+```
