@@ -57,8 +57,8 @@ docker compose down
 ```
 
 
-### API
-# Add DNS Record
+# API
+### Add DNS Record
 ```bash
 curl --location 'localhost:3000/api/dns' \
 --header 'Content-Type: application/json' \
@@ -80,18 +80,18 @@ curl --location 'localhost:3000/api/dns' \
 }'
 ```
 
-# Resolve DNS
+### Resolve DNS
 ```bash
 curl --location 'localhost:3000/api/dns/alias.example.com'
 ```
 
-# Get DNS Record
+### Get DNS Record
 
 ```bash
 curl --location 'localhost:3000/api/dns/example.com/records'
 ```
 
-# Delete DNS Record
+### Delete DNS Record
 ```bash
 curl --location --request DELETE 'localhost:3000/api/dns/alias.example.com?type=CNAME&value=example.com'
 ```
